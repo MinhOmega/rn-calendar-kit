@@ -38,6 +38,7 @@ type CustomTimelineProviderProps = Required<
     | 'unavailableHours'
     | 'hourFormat'
     | 'timeZone'
+    | 'calendarWidth'
   >
 >;
 
@@ -121,9 +122,12 @@ const TimelineProvider: React.FC<TimelineProviderProps> = (props) => {
     nowIndicatorInterval = DEFAULT_PROPS.NOW_INDICATOR_INTERVAL,
     navigateDelay = DEFAULT_PROPS.NAVIGATION_DELAY,
     autoRefreshTimezoneOffset = false,
+    calendarWidth,
   } = props;
 
-  const { width: timelineWidth } = useWindowDimensions();
+  const { width: windowWidth } = useWindowDimensions();
+
+  const timelineWidth = calendarWidth || windowWidth;
 
   /** Refs */
   const dayBarListRef = useRef<FlashList<string>>(null);
