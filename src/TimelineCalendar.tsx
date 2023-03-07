@@ -32,6 +32,7 @@ const TimelineCalendar: React.ForwardRefRenderFunction<
     renderHalfLineCustom,
     halfLineContainerStyle,
     reverseDayNumber,
+    onTimeIntervalHeightChange,
     ...timelineProviderProps
   },
   ref
@@ -61,6 +62,7 @@ const TimelineCalendar: React.ForwardRefRenderFunction<
     renderHalfLineCustom,
     halfLineContainerStyle,
     reverseDayNumber,
+    onTimeIntervalHeightChange,
   };
 
   return (
