@@ -67,7 +67,6 @@ const Timeline: React.ForwardRefRenderFunction<
     allowPinchToZoom,
     scrollToNow,
     initialDate,
-    locale,
     isShowHeader,
     currentIndex,
     pages,
@@ -184,10 +183,6 @@ const Timeline: React.ForwardRefRenderFunction<
       recheckTimezoneOffset,
     ]
   );
-
-  useEffect(() => {
-    moment.locale(locale);
-  }, [locale]);
 
   useEffect(() => {
     requestAnimationFrame(() => {

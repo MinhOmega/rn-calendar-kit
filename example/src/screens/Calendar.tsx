@@ -8,6 +8,7 @@ import {
   TimelineCalendarHandle,
   UnavailableItemProps,
   TimeRanges,
+  MomentConfig,
 } from '@howljs/calendar-kit';
 import type { NavigationProp, RouteProp } from '@react-navigation/native';
 // import dayjs from 'dayjs';
@@ -92,6 +93,14 @@ const unavailableHours: TimeRanges = {
     { start: 16, end: 24 },
   ],
 };
+
+MomentConfig.updateLocale('vi', {
+  weekdaysShort: 'CN_T2_T3_T4_T5_T6_T7'.split('_'),
+});
+
+MomentConfig.updateLocale('ja', {
+  weekdaysShort: '日_月_火_水_木_金_土'.split('_'),
+});
 
 const Calendar = ({ route, navigation }: CalendarProps) => {
   const { bottom: safeBottom } = useSafeAreaInsets();
