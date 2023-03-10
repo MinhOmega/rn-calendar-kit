@@ -115,7 +115,6 @@ const Timeline: React.ForwardRefRenderFunction<
           const position =
             (minutes * timeIntervalHeight.value) / 60 + spaceFromTop;
           const offset = timelineLayoutRef.current.height / 2;
-          console.log(offset, position);
           goToOffsetY(Math.max(0, position - offset), props?.animatedHour);
         }
       },
@@ -199,6 +198,9 @@ const Timeline: React.ForwardRefRenderFunction<
   );
 
   useEffect(() => {
+    if (!timelineLayoutRef.current.height) {
+      return;
+    }
     requestAnimationFrame(() => {
       const current = moment.tz(tzOffset);
       const isSameDate = current.format('YYYY-MM-DD') === initialDate.current;
@@ -211,7 +213,7 @@ const Timeline: React.ForwardRefRenderFunction<
       }
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [goToOffsetY, scrollToNow]);
+  }, [goToOffsetY, scrollToNow, timelineLayoutRef.current.height]);
 
   const _onContentLayout = ({ nativeEvent: { layout } }: LayoutChangeEvent) => {
     if (!minTimeIntervalHeight.value) {
