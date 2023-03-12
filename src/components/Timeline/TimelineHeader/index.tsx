@@ -64,6 +64,7 @@ const TimelineHeader = ({
       highlightDates: extraData.highlightDates,
       tzOffset,
       currentDate: extraData.currentDate,
+      reverseDayNumber: reverseDayNumber,
     };
 
     if (renderDayBarItem) {

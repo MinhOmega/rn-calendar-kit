@@ -14,13 +14,14 @@ const SingleDayBar = ({
   onPressDayNum,
   currentDate,
   tzOffset,
+  reverseDayNumber,
 }: DayBarItemProps) => {
   const _renderDay = () => {
     const dateByIndex = moment.tz(startDate, tzOffset);
     const dateStr = dateByIndex.format('YYYY-MM-DD');
     const [dayNameText, dayNum] = dateByIndex
       .locale(locale)
-      .format('ddd,DD')
+      .format('dd,DD')
       .split(',');
     const highlightDate = highlightDates?.[dateStr];
 
@@ -32,7 +33,12 @@ const SingleDayBar = ({
     );
 
     return (
-      <View style={styles.dayItem}>
+      <View
+        style={[
+          styles.dayItem,
+          reverseDayNumber ? styles.dayItemReverse : null,
+        ]}
+      >
         <Text
           allowFontScaling={theme.allowFontScaling}
           style={[styles.dayName, dayName]}
@@ -73,6 +79,7 @@ export default SingleDayBar;
 const styles = StyleSheet.create({
   container: { alignItems: 'center', flexDirection: 'row' },
   dayItem: { alignItems: 'center', flex: 1 },
+  dayItemReverse: { flexDirection: 'column-reverse' },
   dayNumBtn: {
     alignItems: 'center',
     justifyContent: 'center',

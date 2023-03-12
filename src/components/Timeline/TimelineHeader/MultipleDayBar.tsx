@@ -24,7 +24,7 @@ const MultipleDayBar = ({
     const dateStr = dateByIndex.format('YYYY-MM-DD');
     const [dayNameText, dayNum] = dateByIndex
       .locale(locale)
-      .format('ddd,DD')
+      .format('dd,DD')
       .split(',');
     const highlightDate = highlightDates?.[dateStr];
 

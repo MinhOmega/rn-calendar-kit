@@ -11,7 +11,6 @@ import {
   TimeRanges,
 } from '@howljs/calendar-kit';
 import type { NavigationProp, RouteProp } from '@react-navigation/native';
-// import dayjs from 'dayjs';
 import moment from 'moment-timezone';
 import React, {
   useCallback,
@@ -285,7 +284,6 @@ const Calendar = ({ route, navigation }: CalendarProps) => {
         dayNameColor: '#E14D2A',
         dayNumberColor: '#FFF',
         dayNumberBackgroundColor: '#E14D2A',
-
       },
     }),
     []
@@ -374,7 +372,6 @@ const Calendar = ({ route, navigation }: CalendarProps) => {
         }}
         locale="en"
         useHaptic
-        timeZone="Asia/Ho_Chi_Minh"
         renderHalfLineCustom={_renderHalfLineCustom}
         halfLineContainerStyle={styles.halfLineContainer}
       />
